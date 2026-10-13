@@ -1,0 +1,81 @@
+// Mayor de edad
+
+int edad = 21;
+int edad2 = 16;
+
+if (edad >= 18) ;
+Console.WriteLine("Eres mayor de edad");
+
+
+//Descuento por compra
+
+double monto = 0;
+
+Console.WriteLine("Ingresa un monto:");
+monto = double.Parse(Console.ReadLine());
+
+if (monto > 1000) ;
+Console.WriteLine("El monto nuevo es de: " + (monto * 0.90));
+Console.WriteLine("Gracias por su compra");
+
+
+//Numero negativo
+
+int numero = 0;
+
+Console.WriteLine("Escribe un numero: ");
+numero = int.Parse(Console.ReadLine());
+
+if (numero < 0);
+Console.WriteLine("El numero es negativo");
+Console.WriteLine("El valor abosluto es de: " + (numero * -1));
+
+
+//numero par o impar
+
+double num = 0;
+
+Console.WriteLine("Ingresa un numero: ");
+num = double.Parse(Console.ReadLine());
+
+if (num % 2 == 0)
+{
+    Console.WriteLine("El numero es par");
+}
+else {
+    Console.WriteLine("El numero es impar");
+} 
+
+
+//Aprobado o reprobado
+
+double calificacion = 0;
+
+Console.WriteLine("Ingresa la calificacion: ");
+calificacion = double.Parse(Console.ReadLine());
+
+if (calificacion > 7.5)
+{
+    Console.WriteLine("Aprobado");
+} else
+{
+    Console.WriteLine("Reprobado");
+}
+
+
+//password
+
+string password = "rubi2005";
+
+Console.WriteLine("Ingresa tu password: ");
+password = Console.ReadLine();
+
+if (password == "rubi2005")
+{
+    Console.WriteLine("Acceso concedido");
+} else
+{
+    Console.WriteLine("Acceso denegado");
+}
+
+

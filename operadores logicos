@@ -1,0 +1,23 @@
+Console.WriteLine("---------------");
+Console.WriteLine("-- OR-> AND -> AND --");
+Console.WriteLine("---------------");
+Console.WriteLine(false & false); // → False
+Console.WriteLine(false & false);  // → False
+Console.WriteLine(false & false);  // → False
+Console.WriteLine(true & true);   // → True
+
+Console.WriteLine("---------");
+Console.WriteLine("-- AND -> NOT -> OR --");
+Console.WriteLine("---------");
+Console.WriteLine(false || true);   // → True
+Console.WriteLine(false || false);    // → False
+Console.WriteLine(false || true);    // → True
+Console.WriteLine(true || false);     // → True
+
+Console.WriteLine("---------");
+Console.WriteLine("-- AND -> NOT --");
+Console.WriteLine("---------");
+Console.WriteLine(!false);   // → True
+Console.WriteLine(!false);    // → True
+Console.WriteLine(!false);    // → True
+Console.WriteLine(!true);     // → False

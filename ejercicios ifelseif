@@ -1,0 +1,103 @@
+//CALIFICACIONES
+Console.WriteLine("-------CALIFICACIONES--------");
+
+int calificacion = 0;
+
+Console.WriteLine("Ingresa una calificacion (0-100): ");
+calificacion = int.Parse(Console.ReadLine());
+
+if(calificacion > 100)
+{
+    Console.WriteLine("Calficacion no valida");
+}
+
+else if (calificacion >= 90)
+{
+    Console.WriteLine("A");
+
+}
+else if (calificacion >= 80)
+{
+    Console.WriteLine("B");
+
+}
+else if (calificacion >= 70)
+{
+    Console.WriteLine("C");
+
+}
+else if (calificacion >= 60)
+{
+    Console.WriteLine("D");
+}
+else {
+    Console.WriteLine("F");
+}
+
+//Dia de la semana
+Console.WriteLine("-----DIA DE LA SEMANA-----");
+
+int dia  = 0;
+
+Console.WriteLine("Ingresa un numoer (1 - 7): ");
+dia  = int.Parse(Console.ReadLine());
+
+if (dia >= 8)
+{
+    Console.WriteLine("Numero no valido");
+}else if (dia == 1)
+{
+    Console.WriteLine("Lunes");
+
+}else if (dia == 2)
+{
+    Console.WriteLine("Martes");
+
+}else if (dia == 3)
+{
+    Console.WriteLine("Miercoles");
+
+}else if (dia == 4)
+{
+    Console.WriteLine("Jueves");
+
+}else if (dia == 5)
+{
+    Console.WriteLine("Viernes");
+
+}else if(dia == 6)
+{
+    Console.WriteLine("Sabado");
+}
+else
+{
+    Console.WriteLine("Domingo");
+}
+
+//TEMPERATURA
+Console.WriteLine("-----CLASIFICACION POR TEMPERATURA-----");
+
+int temperatura  = 0;
+
+Console.WriteLine("Ingresa la temperatura: ");
+temperatura = int.Parse(Console.ReadLine());
+
+if  (temperatura < 0)
+{
+    Console.WriteLine("Congelante");
+}else if (temperatura >= 0 && temperatura <= 14)
+{
+    Console.WriteLine("Frio ");
+
+}else if (temperatura >= 15 &&  temperatura <= 24)
+{
+    Console.WriteLine("Templado");
+
+}else if (temperatura >= 25 && temperatura <= 34)
+{
+    Console.WriteLine("Caluroso");
+}
+else
+{
+    Console.WriteLine("Muy caluroso");
+}

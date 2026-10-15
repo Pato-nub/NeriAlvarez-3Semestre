@@ -1,0 +1,94 @@
+//numero mayor a 100
+
+using System.Runtime.CompilerServices;
+
+int numero = 0;
+
+Console.WriteLine("Ingresa un numero: ");
+numero = int.Parse(Console.ReadLine());
+
+if (numero > 100)
+{
+    Console.WriteLine("El numero es mayor a 100");
+}
+
+//Envio gratis
+
+double monto = 0;
+
+Console.WriteLine("Ingresa el monto: $");
+monto  = double.Parse(Console.ReadLine());
+
+if (monto >= 500)
+{
+    Console.WriteLine("Tienes envio gratis");
+}
+Console.WriteLine($"total: {monto}");
+
+//multiplo de 5
+
+int num = 0;
+
+Console.WriteLine("Ingresa un numero: ");
+num = int.Parse(Console.ReadLine());
+
+if (num % 5 == 0)
+{
+    Console.WriteLine("El numero de multiplo de 5");
+}
+
+//Mayor de dos numeros
+
+int num1 = 0;
+int num2 = 0;
+
+Console.WriteLine("Ingresa el primer numero: ");
+num1 = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Ingresa el segundo numero: ");
+num2 = int.Parse(Console.ReadLine());
+
+if (num1 > num2)
+{
+    Console.WriteLine($"El numero mayor es: {num1}");
+}
+else
+{
+    Console.WriteLine($"El numero mayor es: {num2}");
+}
+
+//positivo o negativo
+
+int num3 = 0;
+
+Console.WriteLine("Ingrese un numero entero: ");
+num3 = int.Parse(Console.ReadLine());
+
+if (num3 >= 0)
+{
+    Console.WriteLine("El numero es positivo o cero");
+}else
+{
+    Console.WriteLine("EL numero es negativo");
+}
+    
+//Saldo suficiente
+
+double saldo  = 0;
+double compra = 0;
+
+Console.WriteLine("Ingrese el saldo: ");
+saldo  = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Ingrese el monto: ");
+compra = double.Parse(Console.ReadLine());
+
+if (saldo >= compra)
+{
+    double saldoRestante = saldo - compra;
+    Console.WriteLine($"Compra realizada, saldo restante: ${saldoRestante}");
+}
+else
+{
+    Console.WriteLine("Saldo insuficiente");
+}

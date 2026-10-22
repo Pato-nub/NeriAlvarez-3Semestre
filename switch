@@ -227,7 +227,7 @@ switch (opcion)
             }
 
             int suma = d1 + d2 + d3 + d4;
-            int producto = (int)d1 * d2 * d3 * d4; 
+            long producto = (long)d1 * d2 * d3 * d4; 
 
             string par = "impar";
             if (suma % 2 == 0) 

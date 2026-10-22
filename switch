@@ -1,0 +1,299 @@
+//CAJA REGISTRADORA
+Console.WriteLine("CAJA REGISTRADORA");
+
+int opcion = 0;
+
+Console.WriteLine("Elige una opcion: ");
+opcion = int.Parse(Console.ReadLine());
+
+switch (opcion)
+{
+    case 1:
+        // Opción 1. Calcular cambio en billetes y monedas
+        Console.WriteLine("Ingresa el precio: ");
+        int precio = int.Parse(Console.ReadLine());
+        Console.WriteLine("Ingresa el pago: ");
+        int pago = int.Parse(Console.ReadLine());
+
+        if (precio > pago)
+        {
+            Console.WriteLine($"pago insuficiente, falta ${precio - pago}");
+        }
+        else if (precio == pago) 
+        {
+            Console.WriteLine("Pago exacto, no hay cambio");
+            break;
+        }
+        else
+        {
+            int cambio = pago - precio;
+            Console.WriteLine("Tu cambio es de:" + " " + cambio);
+
+            int b200 = cambio / 200;
+            cambio = cambio % 200;
+            if (b200 > 0)
+            {
+                Console.WriteLine(b200 + "Billete de 200");
+            }
+
+            int b100 = cambio / 100;
+            cambio = cambio % 100;
+            if (b100 > 0)
+            {
+                Console.WriteLine(b100 + "Billete de 100");
+            }
+
+            int b50 = cambio / 50;
+            cambio %= 50;
+            if (b50 > 0) 
+            {
+                Console.WriteLine(b50 + "Billete de 50");
+            }
+
+            int b20 = cambio / 50;
+            cambio %= 50;
+            if (b20 > 0)
+            {
+                Console.WriteLine(b20 + "Billete de 20");
+            }
+
+            int m10 = cambio / 10;
+            cambio %= 10;
+            if (m10 > 0)
+            {
+                Console.WriteLine(m10 + "Moneda de 10");
+            }
+
+            int m2 = cambio / 2;
+            cambio %= 2;
+            if (m2 > 0)
+            {
+                Console.WriteLine(m2 + "Moneda de 5");
+            }
+
+            int m1 = cambio / 1;
+            cambio %= 1;
+            if (m1 > 0)
+            {
+                Console.WriteLine(m1 + "Moneda de 1");
+            }
+        }
+        break;
+
+    case 2:
+        // Opción 2. Aplicar descuento por tipo de cliente
+        Console.WriteLine("Ingresa el subtotal: ");
+        double subtotal = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Ingresa el tipo de cliente ((E, D o G)): ");
+        char cliente = char.Parse(Console.ReadLine());
+
+        Console.WriteLine("Tiene credencial? (S/N)");
+        char credencial = char.Parse(Console.ReadLine());
+
+        bool tieneCrdencial = false ;
+        if (credencial == 'S' || credencial == 'N') 
+        {
+            tieneCrdencial = true;
+        }
+        double porcentajeDescuento = 0;
+
+        switch (cliente)
+        {
+            case 'E':
+            case 'e':
+                porcentajeDescuento = 0.10;
+                break;
+            case 'D':
+            case 'd':
+                porcentajeDescuento = 0.20;
+                break;
+            case 'G':
+            case 'g':
+                porcentajeDescuento = 0.30;
+                break;
+            default:
+                Console.WriteLine("Tipo de cliente no válido");
+                break;
+        }
+        //checar si aplica el 5% extra
+
+        bool extra = false;
+
+        if ( subtotal >= 500 && tieneCrdencial)
+        {
+            extra = true;
+        }
+        if (cliente == 'E' || cliente == 'e')
+        {
+            extra = true ;
+        }
+        if (extra) 
+        {
+            porcentajeDescuento = porcentajeDescuento + 0.5;
+        }
+
+        double descuentoTotal = subtotal * porcentajeDescuento;
+        double totalFinal = subtotal - descuentoTotal;
+
+        Console.WriteLine("Subtotal: $" + subtotal); 
+        Console.WriteLine("Descuento total: $" + descuentoTotal); 
+        Console.WriteLine("Total a pagar: $" + totalFinal); 
+
+        break;
+
+    case 3:
+        //Validar ficha
+        Console.WriteLine("Ingresa el dia: ");
+        int dia = int.Parse(Console.ReadLine());
+        Console.WriteLine("Ingresa el mes");
+        int mes = int.Parse(Console.ReadLine());
+        Console.WriteLine("Ingresa el anio: ");
+        int anio = int.Parse(Console.ReadLine());
+
+        bool esBisiesto = false;
+        if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) 
+        { 
+            esBisiesto = true;
+        }
+
+        int diasDelMes = 0;
+        bool mesOk = true;
+        switch (mes)
+        {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                diasDelMes = 31;
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                diasDelMes = 30; 
+                break;
+
+            case 2:
+                if (esBisiesto)
+                {
+                    diasDelMes = 29;
+                }
+                else
+                {
+                    diasDelMes = 28;
+                }
+                break;
+            default:
+                mesOk = false;
+                break;
+        }
+        string textoBisiesto = "año no bisiesto";
+        if (esBisiesto)
+        {
+            textoBisiesto = "año bisiesto";
+        }
+
+        if (mesOk && mes >= 1 && mes <= 12 && dia >= 1 && dia <= diasDelMes)
+        {
+            Console.WriteLine("Fecha válida, " + textoBisiesto); 
+        }
+        else
+        {
+            Console.WriteLine("Fecha inválida, " + textoBisiesto); 
+        }
+        break;
+
+    case 4:
+    
+        Console.Write("Ingresa el folio (4 dígitos): ");
+        int folio = int.Parse(Console.ReadLine());
+
+        if (folio > 1000 && folio <= 9999)
+        {
+            int d1 = folio / 1000;
+            int d2 = (folio / 100) % 10;
+            int d3 = (folio / 10) % 10;
+            int d4 = folio % 10;
+
+            bool capicua = false;
+            if (d1 == d4 && d2 == d3) 
+            {
+                capicua = true;
+            }
+
+            int suma = d1 + d2 + d3 + d4;
+            long producto = (long)d1 * d2 * d3 * d4; 
+
+            string par = "impar";
+            if (suma % 2 == 0) 
+            {
+                par = "par";
+            }
+
+            if (capicua)
+            {
+                Console.WriteLine(folio + " → Es capicúa, suma = " + suma + " (" + par + "), producto = " + producto); 
+            }
+            else
+            {
+                Console.WriteLine(folio + " → No es capicúa, suma = " + suma + " (" + par + "), producto = " + producto); 
+            }
+        }
+        else
+        {
+            Console.WriteLine("Folio inválido");
+        }
+        break;
+
+    case 5:
+        // Opción 5. Redondear precio y diferencia de inventario[cite: 3]
+        Console.Write("Ingresa un precio con decimales: ");
+        double precioDec = double.Parse(Console.ReadLine());
+
+        int precioRedondeado = (int)(precioDec + 0.5); 
+        Console.WriteLine("Precio redondeado: " + precioRedondeado); 
+
+        Console.Write("Piezas esperadas: ");
+        int esperadas = int.Parse(Console.ReadLine());
+        Console.Write("Piezas contadas: ");
+        int contadas = int.Parse(Console.ReadLine());
+
+        int diferencia = contadas - esperadas;
+
+        if (diferencia == 0)
+        {
+            Console.WriteLine("Inventario correcto"); 
+        }
+        else
+        {
+            if (contadas < esperadas)
+            {
+                int faltantes = esperadas - contadas;
+                Console.WriteLine("Faltan " + faltantes + " piezas"); 
+            }
+            else
+            {
+                int sobrantes = contadas - esperadas;
+                Console.WriteLine("Sobran " + sobrantes + " piezas");
+            }
+        }
+        break;
+
+    case 6:
+        
+        Console.WriteLine("Gracias por usar la caja registradora"); 
+        return;
+
+    default:
+       
+        Console.WriteLine("Opción no válida"); 
+        break;
+
+
+}   
+

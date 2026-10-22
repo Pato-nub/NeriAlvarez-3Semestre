@@ -251,7 +251,7 @@ switch (opcion)
         break;
 
     case 5:
-        // Opción 5. Redondear precio y diferencia de inventario[cite: 3]
+        // Opción 5. Redondear precio y diferencia de inventario
         Console.Write("Ingresa un precio con decimales: ");
         double precioDec = double.Parse(Console.ReadLine());
 

@@ -1,0 +1,105 @@
+int opcion = 0;
+
+Console.WriteLine("Elige una opcion (1/4): ");
+Console.WriteLine("=====REPORTES DE UNA TIENDA=====");
+Console.WriteLine("1. Tabla de precios por cantidad");
+Console.WriteLine("2. Ventas de la semana");
+Console.WriteLine("3. Total de piezas en promoción");
+Console.WriteLine("4. Salir");
+opcion = int.Parse(Console.ReadLine());
+
+
+
+switch (opcion)
+{
+	case 1:
+		 double precioUnitario = 0;
+
+        Console.WriteLine("Ingresa el precio: ");
+		precioUnitario = double.Parse(Console.ReadLine());
+
+		for (int i = 1; i <= 10; i++)
+		{
+            Console.WriteLine($"{i}.-Pieza(s) = {precioUnitario * i}");
+            if (i >= 6)
+            {
+                Console.WriteLine($"{i}.-Pieza(s) = {(precioUnitario * i) * 0.90 + "(Con decuento)"}");
+            }
+
+        }
+		break;
+
+    case 2:
+        double totalVentas = 0;
+        double ventaMasAlta = 0;
+        int diaMasAlto = 0;
+        int diasMayora1000 = 0; 
+
+        for (int i = 1; i <= 7; i++)
+        {
+            Console.WriteLine($"Ingresa las ventas del dia {i}: ");
+            double ventasDia = double.Parse(Console.ReadLine());
+            totalVentas += ventasDia;
+            if (ventasDia > ventaMasAlta)
+            {
+                ventaMasAlta = ventasDia;
+                diaMasAlto = i;
+            }
+            if (ventasDia > 1000)
+            {
+                diasMayora1000++;
+            }
+        }
+        Console.WriteLine($"El total de ventas de la semana es: ${totalVentas}");
+        Console.WriteLine($"La venta mas alta fue del dia {diaMasAlto} con un monto de {ventaMasAlta}");
+        Console.WriteLine($"La cantidad de dias con ventas mayores a 1000 fue: {diasMayora1000}");
+        break;
+
+
+    case 3:
+        Console.WriteLine("Ingresa un numero entre 1 y 20: ");
+        int numero = int.Parse(Console.ReadLine());
+         if (numero < 1 || numero > 20)
+         {
+             Console.WriteLine("Numero invalido. Por favor ingresa un numero entre 1 y 20.");
+            
+
+        }
+        else 
+        {
+
+            int totalPiezas = 0;
+            long productoFactorial = 1;
+            int diasPares = 0;
+            int diasImpares = 0;
+
+            for (int i = 1; i <= 7; i++)
+            {
+                Console.WriteLine($"Ingresa la cantidad de piezas en promoción del dia {i}: ");
+                int piezasDia = int.Parse(Console.ReadLine());
+                totalPiezas += piezasDia;
+                productoFactorial *= piezasDia;
+                if (i % 2 == 0)
+                {
+                    diasPares++;
+                }
+                else
+                {
+                    diasImpares++;
+                }
+            }
+            Console.WriteLine($"total de piezas en promoción: {totalPiezas}");
+            Console.WriteLine($"producto factorial de las piezas: {productoFactorial}");
+            Console.WriteLine($"días pares con promoción: {diasPares}");
+            Console.WriteLine($"días impares con promoción: {diasImpares}");
+
+            
+        }
+        break;
+
+    case 4:
+
+        default:
+        Console.WriteLine("Gracias por usar los reportes de la tiendita...");
+        break;        
+}
